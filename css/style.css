@@ -239,7 +239,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* Main Navigation Bar (Sticky Vu Phong style) */
+/* Main Navigation Bar (Sticky Vu Phong style - 2-Tier Menu) */
 .main-header {
   background-color: #ffffff;
   position: sticky;
@@ -259,24 +259,34 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 82px;
+  min-height: 86px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   transition: var(--vp-transition);
 }
 
 .main-header.scrolled .header-container {
-  height: 72px;
+  min-height: 74px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .site-logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .site-logo img {
-  height: 58px;
+  height: 56px;
   width: auto;
   object-fit: contain;
+  transition: var(--vp-transition);
+}
+
+.main-header.scrolled .site-logo img {
+  height: 48px;
 }
 
 .logo-text-group {
@@ -301,11 +311,86 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.8px;
 }
 
-/* Nav Menu Items */
+/* Header 2-Tier Navigation Wrapper */
+.header-nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  flex: 1;
+  margin-left: 20px;
+}
+
+/* Menu 1 (Hàng trên): Trang chủ, Giới thiệu, Tin tức, Liên hệ */
+.header-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.menu-top {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.menu-top-item {
+  position: relative;
+}
+
+.menu-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  font-family: var(--vp-font-heading);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #4b5563;
+  transition: var(--vp-transition);
+  border-radius: var(--vp-radius-sm);
+}
+
+.menu-top-link svg.arrow-down {
+  width: 9px;
+  height: 9px;
+  fill: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.menu-top-link:hover,
+.menu-top-item.active > .menu-top-link {
+  color: var(--vp-accent);
+}
+
+.menu-top-item:hover > .menu-top-link svg.arrow-down {
+  transform: rotate(180deg);
+}
+
+.menu-top-sep {
+  color: #cbd5e1;
+  font-size: 11px;
+  line-height: 1;
+  user-select: none;
+  opacity: 0.9;
+  margin: 0 1px;
+}
+
+/* Menu 2 (Hàng dưới): Dịch vụ, Dự án tiêu biểu, Chứng chỉ I-REC, Nhà xưởng An Thạnh + Actions */
+.header-main-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 100%;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .nav-item {
@@ -316,10 +401,10 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 12px 14px;
+  padding: 8px 12px;
   font-family: var(--vp-font-heading);
-  font-size: 14.5px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--vp-primary);
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -334,7 +419,8 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.2s ease;
 }
 
-.nav-link:hover, .nav-item.active > .nav-link {
+.nav-link:hover,
+.nav-item.active > .nav-link {
   color: var(--vp-accent);
 }
 
@@ -342,25 +428,36 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(180deg);
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu shared by both Menu 1 and Menu 2 */
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 4px);
   left: 0;
   min-width: 250px;
   background-color: #ffffff;
   border-radius: var(--vp-radius);
   box-shadow: 0 14px 35px rgba(0, 32, 96, 0.13);
-  padding: 10px 0;
+  padding: 8px 0;
   border: 1px solid var(--vp-border);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px);
+  transform: translateY(8px);
   transition: var(--vp-transition);
-  z-index: 999;
+  z-index: 1050;
 }
 
-.nav-item:hover > .dropdown-menu {
+/* Mouse hover bridge */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+.nav-item:hover > .dropdown-menu,
+.menu-top-item:hover > .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -374,8 +471,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 9px 18px;
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--vp-text);
   transition: var(--vp-transition);
@@ -391,7 +488,7 @@ h1, h2, h3, h4, h5, h6 {
 .dropdown-link:hover {
   background-color: var(--vp-bg-light);
   color: var(--vp-accent);
-  padding-left: 24px;
+  padding-left: 22px;
 }
 
 .dropdown-link:hover svg {
@@ -403,12 +500,14 @@ h1, h2, h3, h4, h5, h6 {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
+  margin-left: 6px;
+  flex-shrink: 0;
 }
 
 .search-toggle-btn {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid var(--vp-border);
   background: transparent;
@@ -428,8 +527,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .search-toggle-btn:hover {
   background-color: var(--vp-bg-light);
-  border-color: var(--vp-primary-light);
-  color: var(--vp-primary-light);
+  border-color: var(--vp-accent);
+  color: var(--vp-accent);
+}
+
+/* Header Báo Giá Button (Rectangular with slight rounded corners matching Vu Phong screenshot) */
+.header-quote-btn {
+  padding: 9px 20px !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Mobile Actions container */
+.mobile-header-actions {
+  display: none;
+  align-items: center;
+  gap: 10px;
 }
 
 /* CTA Buttons */
@@ -2170,11 +2285,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive Media Queries */
 @media (max-width: 1080px) {
-  .nav-menu {
+  .header-nav-wrapper {
     display: none;
+  }
+  .mobile-header-actions {
+    display: flex;
   }
   .mobile-toggle-btn {
     display: flex;
+  }
+  .header-container {
+    min-height: 70px;
+    height: 70px;
   }
   .floating-highlights {
     grid-template-columns: repeat(2, 1fr);

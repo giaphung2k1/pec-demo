@@ -58,68 +58,85 @@
       </div>
     </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="nav-menu">
-      <div class="nav-item ">
-        <a href="index.html" class="nav-link">Trang chủ</a>
+    <!-- Desktop 2-Tier Navigation -->
+    <div class="header-nav-wrapper">
+      <!-- Menu 1 (Hàng trên): Trang chủ, Giới thiệu, Tin tức, Liên hệ -->
+      <div class="header-top-row">
+        <nav class="menu-top" aria-label="Menu phụ">
+          <div class="menu-top-item ">
+            <a href="index.html" class="menu-top-link">Trang chủ</a>
+          </div>
+          <span class="menu-top-sep">|</span>
+          <div class="menu-top-item has-dropdown ">
+            <a href="gioi-thieu.html" class="menu-top-link">
+              Giới thiệu
+              <svg class="arrow-down" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-item"><a href="gioi-thieu.html#tong-quan" class="dropdown-link">Tổng quan công ty</a></div>
+              <div class="dropdown-item"><a href="gioi-thieu.html#thu-ngo" class="dropdown-link">Thư ngỏ Ban Giám Đốc</a></div>
+              <div class="dropdown-item"><a href="chung-chi-nang-luc.html" class="dropdown-link">Chứng chỉ & Hồ sơ năng lực</a></div>
+              <div class="dropdown-item"><a href="doi-tac.html" class="dropdown-link">Khách hàng & Đối tác</a></div>
+            </div>
+          </div>
+          <span class="menu-top-sep">|</span>
+          <div class="menu-top-item ">
+            <a href="tin-tuc.html" class="menu-top-link">Tin tức</a>
+          </div>
+          <span class="menu-top-sep">|</span>
+          <div class="menu-top-item ">
+            <a href="lien-he.html" class="menu-top-link">Liên hệ</a>
+          </div>
+        </nav>
       </div>
 
-      <div class="nav-item ">
-        <a href="gioi-thieu.html" class="nav-link">
-          Giới thiệu
-          <svg class="arrow-down" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item"><a href="gioi-thieu.html#tong-quan" class="dropdown-link">Tổng quan công ty</a></div>
-          <div class="dropdown-item"><a href="gioi-thieu.html#thu-ngo" class="dropdown-link">Thư ngỏ Ban Giám Đốc</a></div>
-          <div class="dropdown-item"><a href="chung-chi-nang-luc.html" class="dropdown-link">Chứng chỉ & Hồ sơ năng lực</a></div>
-          <div class="dropdown-item"><a href="doi-tac.html" class="dropdown-link">Khách hàng & Đối tác</a></div>
+      <!-- Menu 2 (Hàng dưới): Các mục còn lại + Search + Báo giá -->
+      <div class="header-main-row">
+        <nav class="nav-menu" aria-label="Menu chính">
+          <div class="nav-item active">
+            <a href="dich-vu.html" class="nav-link">
+              Dịch vụ
+              <svg class="arrow-down" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-item"><a href="dich-vu.html#phat-trien" class="dropdown-link">Phát triển dự án năng lượng</a></div>
+              <div class="dropdown-item"><a href="dich-vu.html#tu-van" class="dropdown-link">Tư vấn kỹ thuật & thiết kế</a></div>
+              <div class="dropdown-item"><a href="dich-vu.html#thi-cong" class="dropdown-link">Thi công xây dựng EPC</a></div>
+              <div class="dropdown-item"><a href="dich-vu-chi-tiet.html" class="dropdown-link">Vận hành & Bảo trì (O&M)</a></div>
+              <div class="dropdown-item"><a href="i-rec.html" class="dropdown-link">Chứng chỉ xanh I-REC</a></div>
+              <div class="dropdown-item"><a href="cho-thue-nha-xuong.html" class="dropdown-link">Cho thuê nhà xưởng Tam Anh</a></div>
+              <div class="dropdown-item"><a href="dich-vu.html#thuong-mai" class="dropdown-link">Thương mại thiết bị điện</a></div>
+            </div>
+          </div>
+
+          <div class="nav-item ">
+            <a href="du-an.html" class="nav-link">Dự án tiêu biểu</a>
+          </div>
+
+          <div class="nav-item ">
+            <a href="i-rec.html" class="nav-link">Chứng chỉ I-REC</a>
+          </div>
+
+          <div class="nav-item ">
+            <a href="cho-thue-nha-xuong.html" class="nav-link">Nhà xưởng An Thạnh</a>
+          </div>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button class="search-toggle-btn" title="Tìm kiếm" aria-label="Tìm kiếm">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          </button>
+          <a href="#quote" class="btn btn-accent open-quote-modal header-quote-btn">Báo Giá</a>
         </div>
       </div>
+    </div>
 
-      <div class="nav-item active">
-        <a href="dich-vu.html" class="nav-link">
-          Dịch vụ
-          <svg class="arrow-down" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item"><a href="dich-vu.html#phat-trien" class="dropdown-link">Phát triển dự án năng lượng</a></div>
-          <div class="dropdown-item"><a href="dich-vu.html#tu-van" class="dropdown-link">Tư vấn kỹ thuật & thiết kế</a></div>
-          <div class="dropdown-item"><a href="dich-vu.html#thi-cong" class="dropdown-link">Thi công xây dựng EPC</a></div>
-          <div class="dropdown-item"><a href="dich-vu-chi-tiet.html" class="dropdown-link">Vận hành & Bảo trì (O&M)</a></div>
-          <div class="dropdown-item"><a href="i-rec.html" class="dropdown-link">Chứng chỉ xanh I-REC</a></div>
-          <div class="dropdown-item"><a href="cho-thue-nha-xuong.html" class="dropdown-link">Cho thuê nhà xưởng Tam Anh</a></div>
-          <div class="dropdown-item"><a href="dich-vu.html#thuong-mai" class="dropdown-link">Thương mại thiết bị điện</a></div>
-        </div>
-      </div>
-
-      <div class="nav-item ">
-        <a href="du-an.html" class="nav-link">Dự án tiêu biểu</a>
-      </div>
-
-      <div class="nav-item ">
-        <a href="i-rec.html" class="nav-link">Chứng chỉ I-REC</a>
-      </div>
-
-      <div class="nav-item ">
-        <a href="cho-thue-nha-xuong.html" class="nav-link">Nhà xưởng An Thạnh</a>
-      </div>
-
-      <div class="nav-item ">
-        <a href="tin-tuc.html" class="nav-link">Tin tức</a>
-      </div>
-
-      <div class="nav-item ">
-        <a href="lien-he.html" class="nav-link">Liên hệ</a>
-      </div>
-    </nav>
-
-    <!-- Header Actions -->
-    <div class="header-actions">
+    <!-- Mobile Header Actions (Visible only on mobile/tablet) -->
+    <div class="mobile-header-actions">
       <button class="search-toggle-btn" title="Tìm kiếm" aria-label="Tìm kiếm">
         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
       </button>
-      <a href="#quote" class="btn btn-accent open-quote-modal">Nhận Báo Giá</a>
       <button class="mobile-toggle-btn" aria-label="Mở menu">
         <span></span><span></span><span></span>
       </button>
